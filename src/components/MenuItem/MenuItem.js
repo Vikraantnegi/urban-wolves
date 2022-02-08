@@ -1,12 +1,15 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import './MenuItem.scss'
 
 const MenuItem = (props) => {
-    const { title, image, link, customClass } = {...props};
+    const { title, image, url, customClass } = {...props};
+    const navigate = useNavigate();
+
     return (        
         <div
             className={`${customClass} menu-item`} 
-            onClick={() => window.open(link)}
+            onClick={() => navigate(url)}
         >
             <div
                 className='bg-image' 
