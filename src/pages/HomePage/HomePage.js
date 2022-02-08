@@ -4,23 +4,49 @@ import './HomePage.scss'
 
 const HomePage = (props) => {
 
-    const items = [{ id: 1, title: 'Hats', subTitle: 'Shop Now' },
-        { id: 2, title: 'Jackets', subTitle: 'Shop Now' },
-        { id: 3, title: 'Shoes', subTitle: 'Shop Now' },
-        { id: 4, title: 'Womens', subTitle: 'Shop Now' },
-        { id: 5, title: 'Mens', subTitle: 'Shop Now' },
-    ]
+    const items = [{
+            title: 'Hats',
+            imageUrl: 'https://i.ibb.co/cvpntL1/hats.png',
+            id: 1,
+            linkUrl: 'shop/hats'
+        }, {
+            title: 'Jackets',
+            imageUrl: 'https://i.ibb.co/px2tCc3/jackets.png',
+            id: 2,
+            linkUrl: 'shop/jackets'
+        }, {
+            title: 'Sneakers',
+            imageUrl: 'https://i.ibb.co/0jqHpnp/sneakers.png',
+            id: 3,
+            linkUrl: 'shop/sneakers'
+        }, {
+            title: 'Womens',
+            imageUrl: 'https://i.ibb.co/GCCdy8t/womens.png',
+            id: 4,
+            size: 'large',
+            linkUrl: 'shop/womens'
+        }, {
+            title: 'Mens',
+            imageUrl: 'https://i.ibb.co/R70vBrQ/men.png',
+            id: 5,
+            size: 'large',
+            linkUrl: 'shop/mens'
+        }
+    ];
 
     return (
         <div className='homepage'>
-            <h1>Welcome to my Homepage</h1>
+            <h1>Welcome to Urban Wolves</h1>
             <div className='directory-menu'>
-                {items.map(item => {
+                {items.map((item, index) => {
                     return (
                         <MenuItem
+                        key={index}
                             id={item.id}
                             title={item.title}
-                            subTitle={item.subTitle}
+                            image={item.imageUrl}
+                            url={item.linkUrl}
+                            customClass={item.size}
                         />
                     )
                 })}

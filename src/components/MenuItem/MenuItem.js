@@ -1,12 +1,16 @@
 import React from 'react';
 
 const MenuItem = (props) => {
-    const { id, title, subTitle } = {...props};
+    const { title, image, link, customClass } = {...props};
     return (        
-        <div key={id} className='menu-item'>
+        <div 
+            style={{ backgroundImage: `url(${image})` }} 
+            className={`${customClass} menu-item`} 
+            onClick={() => window.open(link)}
+        >
             <div className='content'>
                 <div className='title'>{title}</div>
-                <span className='subtitle'>{subTitle}</span>
+                <span className='subtitle'>Shop Now</span>
             </div>
         </div>
     )
