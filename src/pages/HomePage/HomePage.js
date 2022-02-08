@@ -1,4 +1,5 @@
 import React from 'react';
+import MenuItem from '../../components/MenuItem/MenuItem';
 import './HomePage.scss'
 
 const HomePage = (props) => {
@@ -16,12 +17,11 @@ const HomePage = (props) => {
             <div className='directory-menu'>
                 {items.map(item => {
                     return (
-                        <div key={item.id} className='menu-item'>
-                            <div className='content'>
-                                <div className='title'>{item.title}</div>
-                                <span className='subtitle'>{item.subTitle}</span>
-                            </div>
-                        </div>
+                        <MenuItem
+                            id={item.id}
+                            title={item.title}
+                            subTitle={item.subTitle}
+                        />
                     )
                 })}
             </div>
