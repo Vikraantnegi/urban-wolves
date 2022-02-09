@@ -5,10 +5,12 @@ import App from './App';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import HatsPage from './pages/HatsPage/HatsPage';
 import ShopPage from './pages/ShopPage/ShopPage';
+import Header from './components/Header/Header';
 
 ReactDOM.render(
     <React.StrictMode>
         <Router>
+            <Header />
             <Routes>
                 <Route path="/" element={<App />} />
                 <Route path="/shop" element={<ShopPage />} />
