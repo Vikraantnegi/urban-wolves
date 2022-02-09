@@ -1,6 +1,7 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import ClothingItem from '../ClothingItem/ClothingItem'
+import './ShopItem.scss'
 
 const ShopItem = (props) => {
     const { title, items, route } = {...props}
@@ -12,17 +13,21 @@ const ShopItem = (props) => {
                 className='collection-title' 
                 onClick={() => navigate(route)}
             >
-                {title}
+                {title.toUpperCase()}
             </h1>
             <div className='collection-items'>
-                {items.map(item => {
-                    return(
-                        <ClothingItem
-                            key={item.id}
-                            item={item}
-                        />
-                    )
-                })}
+                {
+                    items
+                        .filter((item, index) => index < 4)
+                        .map(item => {
+                            return(
+                                <ClothingItem
+                                    key={item.id}
+                                    item={item}
+                                />
+                            )
+                        }
+                )}
             </div>
         </div>
     )
