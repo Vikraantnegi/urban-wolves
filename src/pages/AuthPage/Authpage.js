@@ -1,10 +1,12 @@
-import React, { useState } from 'react'
+import React from 'react'
+import SignIn from '../../components/SignIn/SignIn'
+import './AuthPage.scss'
 
 const AuthPage = () => {
     
     return (
         <div className='auth'>
-
+            <SignIn />
         </div>
     )
 }
