@@ -1,5 +1,5 @@
 import React from 'react';
-import MenuItem from '../../components/MenuItem/MenuItem';
+import MenuItem from '../../components/HomePage/MenuItem/MenuItem';
 import './HomePage.scss'
 
 const HomePage = (props) => {

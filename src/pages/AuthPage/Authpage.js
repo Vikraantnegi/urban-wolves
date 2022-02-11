@@ -1,5 +1,5 @@
 import React from 'react'
-import SignIn from '../../components/SignIn/SignIn'
+import SignIn from '../../components/AuthPage/SignIn/SignIn'
 import './AuthPage.scss'
 
 const AuthPage = () => {
