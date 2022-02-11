@@ -2,11 +2,14 @@ import React from 'react'
 import './CustomButton.scss'
 
 const CustomButton = (props) => {
-    
+    const { children, type } = {...props}
     return (
-        <div className='custom-button'>
-
-        </div>
+        <button
+            className='custom-button'
+            type={type}
+        >
+            {children}
+        </button>
     )
 }
 

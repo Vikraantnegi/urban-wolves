@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import CustomButton from '../CustomButton/CustomButton'
 import FormInput from '../FormInput/FormInput'
 import './SignIn.scss'
 
@@ -44,7 +45,11 @@ const SignIn = () => {
                     onChange={(event) => handleChange(event)}
                 />
 
-                <input type='submit' value='Submit Form' />
+                <CustomButton 
+                    type='submit'
+                >
+                    Sign In
+                </CustomButton>
             </form>
         </div>
     )
