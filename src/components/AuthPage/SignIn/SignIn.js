@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import CustomButton from '../CustomButton/CustomButton'
 import FormInput from '../FormInput/FormInput'
+import { signInWithGoogle } from '../../../firebase'
 import './SignIn.scss'
 
 const SignIn = () => {
@@ -18,6 +19,7 @@ const SignIn = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
+        console.log(event)
 
         setEmail('')
         setPassword('')
@@ -28,28 +30,29 @@ const SignIn = () => {
             <h2>Already have an account?</h2>
             <span>Sign in with your email and password</span>
 
-            <form onSubmit={() => handleSubmit}>
+            <form onSubmit={(event) => handleSubmit(event)}>
                 <FormInput
                     name='email'
                     type='email'
                     value={email}
                     label='Email'
-                    onChange={(event) => handleChange(event)}
+                    handleChange={(event) => handleChange(event)}
                 />
-
                 <FormInput
                     name='password'
                     type='password'
                     value={password}
                     label='Password'
-                    onChange={(event) => handleChange(event)}
+                    handleChange={(event) => handleChange(event)}
                 />
-
-                <CustomButton 
-                    type='submit'
-                >
-                    Sign In
-                </CustomButton>
+                <div className='buttons'>
+                    <CustomButton type='submit'>
+                        Sign In
+                    </CustomButton>
+                    <CustomButton onClick={() => signInWithGoogle()}>
+                        Sign in with Google
+                    </CustomButton>
+                </div>
             </form>
         </div>
     )
