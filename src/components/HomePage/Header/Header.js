@@ -1,9 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Logo from '../../../static/images/wolf3.png'
+import { auth } from "../../../firebase";
+import { useNavigate } from "react-router-dom";
 import './Header.scss'
 
-const Header = () => {
+const Header = ({user}) => {
+    const navigate = useNavigate();
+    const signOut = () => {
+        auth.signOut();
+        navigate('/shop')
+    }
+
     return (
         <div className="header">
             <Link className="header-logo" to='/'>
@@ -12,7 +20,13 @@ const Header = () => {
             <div className="options">
                 <Link className="option" to='/shop'>Shop</Link>
                 <Link className="option" to='/contact'>Contact</Link>
-                <Link className="option" to='/login'>Login</Link>
+                {
+                    user ? (
+                        <div className="option" onClick={() => signOut()}>Sign Out</div>
+                    ) : (
+                        <Link className="option" to='/login'>Sign In</Link>                        
+                    )
+                }
             </div>
         </div>
     )
