@@ -36,6 +36,7 @@ const SignIn = () => {
                     value={email}
                     label='Email'
                     handleChange={(event) => handleChange(event)}
+                    required
                 />
                 <FormInput
                     name='password'
@@ -43,6 +44,7 @@ const SignIn = () => {
                     value={password}
                     label='Password'
                     handleChange={(event) => handleChange(event)}
+                    required
                 />
                 <div className='buttons'>
                     <CustomButton type='submit'>
