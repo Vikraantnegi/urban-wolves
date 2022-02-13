@@ -36,7 +36,7 @@ const HomePage = (props) => {
 
     return (
         <div className='homepage'>
-            <h1>Welcome to Urban Wolves</h1>
+            <h1 className='title'>Welcome to Urban Wolves</h1>
             <div className='directory-menu'>
                 {items.map((item, index) => {
                     return (

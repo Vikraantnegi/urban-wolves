@@ -5,10 +5,11 @@ import { auth, createUser } from '../../../firebase'
 import './SignUp'
 
 const SignUp = () => {
-    const [ name, setName ] = useState('')
+    const [ displayName, setName ] = useState('')
     const [ email, setEmail ] = useState('')
     const [ password, setPassword ] = useState('')
     const [ confirmPassword, setConfirmPassword ] = useState('')
+    const photoURL = 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png'
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -20,7 +21,7 @@ const SignUp = () => {
 
         try{
             const { user } = await auth.createUserWithEmailAndPassword(email, password)
-            await createUser(user, {name, photoUrl: 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png'})
+            await createUser(user, {displayName, photoURL})
 
             setName('')
             setEmail('')
@@ -54,7 +55,7 @@ const SignUp = () => {
                 <FormInput
                     name='name'
                     type='text'
-                    value={name}
+                    value={displayName}
                     label='Name'
                     handleChange={(event) => handleChange(event)}
                     required
