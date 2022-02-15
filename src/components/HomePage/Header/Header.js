@@ -5,6 +5,7 @@ import { auth } from "../../../firebase";
 import { useNavigate } from "react-router-dom";
 import { connect } from "react-redux";
 import './Header.scss'
+import CartIcon from "./CartIcon/CartIcon";
 
 const Header = (props) => {
     const navigate = useNavigate();
@@ -28,6 +29,7 @@ const Header = (props) => {
                         <Link className="option" to='/login'>Sign In</Link>                        
                     )
                 }
+                <CartIcon />
             </div>
         </div>
     )
