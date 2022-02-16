@@ -1,9 +1,12 @@
 import React from 'react'
 import CustomButton from '../../AuthPage/CustomButton/CustomButton'
+import { connect } from 'react-redux'
 import './ClothingItem.scss'
+import { addItem } from '../../../redux/cart/cartActions'
 
-const ClothingItem = ({item}) => {
-    const { name, imageUrl, price } = {...item}
+const ClothingItem = (props) => {
+    const { item, addItem } = {...props}
+    const {name, imageUrl, price} = {...item}
     return (
         <div className='collection-item'>
             <div 
@@ -14,9 +17,13 @@ const ClothingItem = ({item}) => {
                 <span className='name'>{name}</span>
                 <span className='price'>${price}</span>
             </div>
-            <CustomButton customClass='inverted'>Add To Cart</CustomButton>
+            <CustomButton type='submit' onClick={() => addItem(item)} customClass='inverted'>Add To Cart</CustomButton>
         </div>
     )
 }
 
-export default ClothingItem
+const mapDispatchToProps = dispatch => ({
+    addItem: item => dispatch(addItem(item))
+})
+
+export default connect( null, mapDispatchToProps )(ClothingItem)

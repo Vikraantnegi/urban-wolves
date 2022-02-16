@@ -1,5 +1,6 @@
 const initialState = {
-    cartModal: false
+    cartModal: false,
+    cartItems: []
 }
 
 const cartReducer = (state = initialState, action) => {
@@ -8,6 +9,11 @@ const cartReducer = (state = initialState, action) => {
             return {
                 ...state,
                 cartModal: !state.cartModal
+            }
+        case 'ADD_ITEM':
+            return {
+                ...state,
+                cartItems: [...state.cartItems, action.payload]
             }
         default:
             return state;
