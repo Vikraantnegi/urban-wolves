@@ -1,4 +1,5 @@
 import React from 'react'
+import CustomButton from '../../AuthPage/CustomButton/CustomButton'
 import './ClothingItem.scss'
 
 const ClothingItem = ({item}) => {
@@ -13,6 +14,7 @@ const ClothingItem = ({item}) => {
                 <span className='name'>{name}</span>
                 <span className='price'>${price}</span>
             </div>
+            <CustomButton customClass='inverted'>Add To Cart</CustomButton>
         </div>
     )
 }
