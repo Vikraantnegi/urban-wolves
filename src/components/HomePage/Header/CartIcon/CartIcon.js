@@ -5,17 +5,17 @@ import { toggleCartModal } from '../../../../redux/cart/cartActions'
 import './CartIcon.scss'
 
 const CartIcon = (props) => {
-  const { toggleCartModal, cartItems } = {...props}
+  const { toggleCartModal, totalItems } = {...props}
   return (
     <div className='cart-icon' onClick={() => toggleCartModal()}>
       <BsHandbag className='shopping-icon' />
-      <div className='item-count'><span>{ cartItems.length }</span></div>
+      <div className='item-count'><span>{ totalItems }</span></div>
     </div>
   )
 }
 
 const mapStateToProps = state => ({
-  cartItems: state.cart.cartItems
+  totalItems: state.cart.cartItems.reduce((total, item) => total + item.qty, 0)
 })
 
 const matchDispatchToProps = dispatch => ({
