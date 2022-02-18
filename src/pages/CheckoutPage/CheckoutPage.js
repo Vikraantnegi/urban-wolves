@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import CartItem from '../../components/HomePage/Header/CartDropDown/CartItem.js/CartItem'
+import CartItem from '../../components/CheckoutPage/CartItem/CartItem'
 import './CheckoutPage.scss'
 
 const CheckoutPage = (props) => {

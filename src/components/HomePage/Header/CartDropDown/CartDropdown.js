@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom'
 import { toggleCartModal } from '../../../../redux/cart/cartActions'
 
 const CartDropdown = (props) => {
-  const { cartItems } = {...props}
+  const { cartItems, toggleCartModal } = {...props}
   const navigate = useNavigate()
   return (
     <div className='cart-dropdown'>
