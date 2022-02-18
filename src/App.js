@@ -10,6 +10,7 @@ import AuthPage from './pages/AuthPage/Authpage';
 import { auth, createUser } from './firebase'
 import { connect } from 'react-redux';
 import { setCurrentUser } from './redux/user/userActions';
+import CheckoutPage from './pages/CheckoutPage/CheckoutPage';
 
 function App(props) {
   const { setCurrentUser, user } = {...props}
@@ -37,6 +38,7 @@ function App(props) {
               <Route path="/" element={<HomePage />} />
               <Route path="/shop" element={<ShopPage />} />
               <Route path="/shop/hats" element={<HatsPage />} />
+              <Route path="/checkout" element={<CheckoutPage />} />
               <Route path="/login" element={ user ? <Navigate to="/" /> : <AuthPage />} />
           </Routes>
       </Router>
