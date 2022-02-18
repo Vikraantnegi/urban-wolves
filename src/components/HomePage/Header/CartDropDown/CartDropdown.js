@@ -4,6 +4,7 @@ import CustomButton from '../../../AuthPage/CustomButton/CustomButton'
 import './CartDropdown.scss'
 import CartItem from './CartItem.js/CartItem'
 import { useNavigate } from 'react-router-dom'
+import { toggleCartModal } from '../../../../redux/cart/cartActions'
 
 const CartDropdown = (props) => {
   const { cartItems } = {...props}
@@ -22,7 +23,14 @@ const CartDropdown = (props) => {
               <span className='empty-message'>Your cart is empty!</span>
           }
         </div>
-        <CustomButton type='button' onClick={() => navigate('/checkout')}>Checkout</CustomButton>
+        <CustomButton type='button'
+          onClick={() => {
+            navigate('/checkout');
+            toggleCartModal()
+          }}
+        >
+          Checkout
+        </CustomButton>
     </div> 
   )
 }
@@ -31,4 +39,8 @@ const mapStateToProps = state => ({
   cartItems: state.cart.cartItems
 })
 
-export default connect(mapStateToProps)(CartDropdown)
+const matchDispatchToProps = dispatch => ({
+  toggleCartModal: () => dispatch(toggleCartModal())
+})
+
+export default connect(mapStateToProps, matchDispatchToProps)(CartDropdown)

@@ -1,4 +1,4 @@
-.checkout-page {
+.checkout {
     width: 55%;
     min-height: 90vh;
     display: flex;
@@ -13,14 +13,31 @@
       justify-content: space-between;
       border-bottom: 1px solid darkgrey;
   
-      .header-block {
+      .header-tab {
         text-transform: capitalize;
-        width: 23%;
+        width: 22%;
   
         &:last-child {
-          width: 8%;
+          width: 12%;
         }
       }
     }
-}
+
+    .cart-items {
+        display: flex;
+        flex-direction: column;
+        overflow: auto;
+  
+        .empty-message {
+          font-size: 18px;
+          margin: 24px auto;
+        }
+    }
+  
+    .total {
+      margin-top: 30px;
+      margin-left: auto;
+      font-size: 30px;
+    }
+  }
   
