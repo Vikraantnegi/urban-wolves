@@ -20,6 +20,7 @@
     .qty,
     .price {
       width: 22%;
+      text-align: center;
     }
   
     .qty {
@@ -28,6 +29,7 @@
   
     .remove {
       padding-left: 12px;
+      text-align: center;
       width: 12%;
       cursor: pointer;
     }

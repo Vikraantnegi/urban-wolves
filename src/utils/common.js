@@ -9,3 +9,7 @@ export const addItemtoCart = (cart, item) => {
 
     return [...cart, {...item, qty: 1}]
 }
+
+export const removeItemfromCart = (cart, id) => {
+    return cart.filter(item => item.id !== id)
+}
