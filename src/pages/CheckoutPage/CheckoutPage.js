@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import CartItem from '../../components/CheckoutPage/CartItem/CartItem'
+import { calculateQty, calculateTotal } from '../../utils/common'
 import './CheckoutPage.scss'
 
 const CheckoutPage = (props) => {
@@ -45,7 +46,7 @@ const CheckoutPage = (props) => {
 
 const mapStateToProps = state => ({
     cartItems: state.cart.cartItems,
-    totalAmount: state.cart.cartItems.reduce((total, item) => total + item.qty * item.price, 0)
+    totalAmount: calculateTotal(state.cart.cartItems)
 })
 
 export default connect(mapStateToProps)(CheckoutPage)

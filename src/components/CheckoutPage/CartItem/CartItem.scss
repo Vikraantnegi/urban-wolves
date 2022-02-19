@@ -24,7 +24,16 @@
     }
   
     .qty {
-      padding-left: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .arrow{
+        cursor: pointer;
+        font-weight: bold;
+      }
+      .value{
+        margin: 0 10px;
+      }
     }
   
     .remove {

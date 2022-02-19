@@ -2,6 +2,7 @@ import React from 'react'
 import { BsHandbag } from 'react-icons/bs'
 import { connect } from 'react-redux'
 import { toggleCartModal } from '../../../../redux/cart/cartActions'
+import { calculateQty } from '../../../../utils/common'
 import './CartIcon.scss'
 
 const CartIcon = (props) => {
@@ -15,7 +16,7 @@ const CartIcon = (props) => {
 }
 
 const mapStateToProps = state => ({
-  totalItems: state.cart.cartItems.reduce((total, item) => total + item.qty, 0)
+  totalItems: calculateQty(state.cart.cartItems)
 })
 
 const matchDispatchToProps = dispatch => ({

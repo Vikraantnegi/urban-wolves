@@ -7,6 +7,11 @@ export const addItem = item => ({
     payload: item
 })
 
+export const decreaseItem = id => ({
+    type: 'DECREASE_ITEM',
+    payload: id
+})
+
 export const removeItem = id => ({
     type: 'REMOVE_ITEM',
     payload: id
