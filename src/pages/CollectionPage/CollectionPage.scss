@@ -1,0 +1,24 @@
+.category{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .category-title{
+        font-size: 36px;
+        margin-bottom: 28px;
+        text-align: center;
+    }
+
+    .category-collection{
+        display: flex;
+        justify-content: center;
+        
+        .category-items{
+            display: flex;
+            flex-direction: row;
+            gap: 45px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+    }
+}

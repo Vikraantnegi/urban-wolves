@@ -3,7 +3,6 @@ import React, { useEffect } from 'react';
 import './App.css';
 import HomePage from './pages/HomePage/HomePage';
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
-import HatsPage from './pages/HatsPage/HatsPage';
 import ShopPage from './pages/ShopPage/ShopPage';
 import Header from './components/HomePage/Header/Header';
 import AuthPage from './pages/AuthPage/Authpage';
@@ -11,6 +10,7 @@ import { auth, createUser } from './firebase'
 import { connect } from 'react-redux';
 import { setCurrentUser } from './redux/user/userActions';
 import CheckoutPage from './pages/CheckoutPage/CheckoutPage';
+import CollectionPage from './pages/CollectionPage/CollectionPage';
 
 function App(props) {
   const { setCurrentUser, user } = {...props}
@@ -37,7 +37,7 @@ function App(props) {
           <Routes>
               <Route path="/" element={<HomePage />} />
               <Route path="/shop" element={<ShopPage />} />
-              <Route path="/shop/hats" element={<HatsPage />} />
+              <Route path="/shop/:category" element={<CollectionPage />} />
               <Route path="/checkout" element={<CheckoutPage />} />
               <Route path="/login" element={ user ? <Navigate to="/" /> : <AuthPage />} />
           </Routes>
