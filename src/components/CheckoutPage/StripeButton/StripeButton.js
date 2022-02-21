@@ -1,15 +1,19 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom';
 import StripeCheckout from 'react-stripe-checkout'
-import './StripeButton.css'
+import { connect } from 'react-redux';
+import { emptyCart } from '../../../redux/cart/cartActions';
 
 const StripeButton = (props) => {
-    const { totalAmount } = props;
+    const { totalAmount, emptyCart } = props;
     const totalStripeAmount = totalAmount*100;
     const publishKey = 'pk_test_51ImZFjSGoayWD3rXuFeZ9hgCeNIqYxw2ll2dGKjSjjwECy6c8JggHOfdOyMNJZLQdknTOXNh1ckw0spjSmX7tkvZ00k6GRheAx'
-    
+    const navigate = useNavigate()
+
     const onToken = token => {
         console.log(token)
-        alert('Payment Successful')
+        emptyCart()
+        navigate('/')
     }
 
     return (
@@ -22,10 +26,14 @@ const StripeButton = (props) => {
             description={`Your total is $${totalAmount}`}
             amount={totalStripeAmount}
             panelLabel='Pay Now'
-            token={() => onToken()}
+            token={(token) => onToken(token)}
             stripeKey={publishKey} 
         />
     )
 }
 
-export default StripeButton
+const mapDispatchToProps = dispatch => ({
+    emptyCart : () => dispatch(emptyCart())
+})
+
+export default connect(null, mapDispatchToProps)(StripeButton)

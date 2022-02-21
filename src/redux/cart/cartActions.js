@@ -16,3 +16,7 @@ export const removeItem = id => ({
     type: 'REMOVE_ITEM',
     payload: id
 })
+
+export const emptyCart = () => ({
+    type: 'EMPTY_CART',
+})
