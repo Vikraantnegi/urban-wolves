@@ -19,17 +19,15 @@ const SignUp = () => {
             return
         }
 
-        try{
-            const { user } = await auth.createUserWithEmailAndPassword(email, password)
-            await createUser(user, {displayName, photoURL})
-
-            setName('')
-            setEmail('')
-            setPassword('')
-            setConfirmPassword('')
-        } catch (error) {
-            console.log(error)
-        }
+        const { user } = await auth.createUserWithEmailAndPassword(email, password)
+        await createUser(user, {displayName, photoURL})
+            .then(res => {
+                setName('')
+                setEmail('')
+                setPassword('')
+                setConfirmPassword('')
+            })
+            .catch(err => console.log(err))
     }
 
     const handleChange = (event) => {

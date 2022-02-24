@@ -19,15 +19,12 @@ const SignIn = () => {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-
-        try{
-            await auth.signInWithEmailAndPassword(email, password)
-
-            setEmail('')
-            setPassword('')
-        } catch (error){
-            console.log(error)
-        }
+        await auth.signInWithEmailAndPassword(email, password)
+            .then(res => {
+                setEmail('')
+                setPassword('')
+            })
+            .catch(err => console.log(err))
     }
 
     return (
